@@ -2,7 +2,7 @@
 <!--
 -Andrew Helmkamp 
 -Project 1
--VFW ####
+-MiU 1302
 -->
 <html>
 	<head>
@@ -13,6 +13,13 @@
 		<meta name="description" content="Manage your time better" />
 		<meta name="author" content="Andrew Helmkamp" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!--Custom jQM CSS-->
+		<link rel="stylesheet" href="./css/themes/green.min.css" />
+		<!--jQM CDN-->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<!--Local CSS-->
 		<link rel="stylesheet" type="text/css" href="./css/styles.css">
 		<!--Page Title-->
 		<title>Time Manager</title>
@@ -20,13 +27,37 @@
 	</head>
 
 	<body>
-		<div class="wrap">
-			<h1>Time Manager</h1>
-			<p>Help manage your time with a simple to do app!</p>
-			<div id="addLink">
-				<a href="additem.html" id="mainAdd">Add Item</a>
+		<div class="wrap" data-theme="d" data-role="page" id="home">
+		    <div data-role="header">
+				<h1>Time Manager</h1>
+			</div>
+			<div data-role="content">
+				<a href="additem.html" id="mainAdd" data-ajax="false"><img src="./img/feature.png"></a>
+				<div data-role="fieldcontain">
+					<!--<label>Search for a Task</label>-->
+					<input type="search" id="search" name="search" value="" placeholder="search for a task"/>
+				</div>	
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider" data-header-theme="d">
+						Browse by...
+					</li>
+					<li><a href="#fourOfour">Start Date</a></li>
+					<li><a href="#fourOfour">End Date</a></li>
+					<li><a href="#fourOfour">Category</a></li>
+					<li><a href="#fourOfour">Priority</a></li>
+					<li><a href="#fourOfour">Highlighted</a></li>
+				</ul>
+			
 			</div>
 		</div>
-
+		
+		<div class="wrap" data-theme="d" data-role="page" id="fourOfour" data-add-back-btn="true">
+		    <div data-role="header">
+				<h1>404 Error</h1>
+			</div>
+			<div data-role="content">
+				<p>Sorry! The page you are looking for was not found.</p>
+			</div>
+		</div>
 	</body>
 </html>

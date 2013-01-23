@@ -1,30 +1,29 @@
-/*Style based off of jQuery Mobile theme A*/
+
 
 * {
 	/*Get rid of the highlight when you tap a link*/
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-#wrap {
+/*#wrap {
 	width: 21em;
-}
+}*/
 
 body {
 	font-family: sans-serif;
 	font-size: 14px;
 	color: white;
-	background: -webkit-linear-gradient(top, #444, #222);
-	text-shadow: 0 /*{a-body-shadow-x}*/ 1px /*{a-body-shadow-y}*/ 1px /*{a-body-shadow-radius}*/ #111 /*{a-body-shadow-color}*/;
+	background: black;
 }
 
-h1 {
+/*h1 {
 	border: 1px solid #333;
 	text-align: center;
 	background: -webkit-linear-gradient(top, #3c3c3c, #111);
 	color: white;
 	-webkit-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
 	text-shadow: 0 1px 1px #999;
-}
+}*/
 
 #clear {
 	border-right: solid 1px #000;
