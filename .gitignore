@@ -11,3 +11,6 @@ idea
 
 *.komodoproject
 main1.js
+*.config
+js/sortTest.js
+.project
