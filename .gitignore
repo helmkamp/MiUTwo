@@ -12,5 +12,6 @@ idea
 *.komodoproject
 main1.js
 *.config
-js/sortTest.js
+GoldApp/js/sortTest.js
+BronzeApp/js/sortTest.js
 .project
