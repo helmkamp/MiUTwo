@@ -33,35 +33,47 @@
 				<h1>Time Manager</h1>
 			</div>
 			<div data-role="content">
-				<a href="additem.html" id="mainAdd" data-ajax="false"><img src="./img/feature.png"></a>
-				<div data-role="fieldcontain">
-					<!--<label>Search for a Task</label>-->
-					<input type="search" id="search" name="search" value="" placeholder="search for a task"/>
-				</div>	
-				<ul data-role="listview" data-inset="true">
-					<li data-role="list-divider" class="ui-bar-d">
-						Browse by...
-					</li>
-					<li><a href="#browse-by?category=Start Date">Start Date</a></li>
-					<li><a href="#browse-by?category=End Date">End Date</a></li>
-					<li>Category
-						<ul>
-							<li><a href="#browse-by?category=Work">Work</a></li>
-							<li><a href="#browse-by?category=School">School</a></li>
-							<li><a href="#browse-by?category=Personal">Personal</a></li>
-							<li data-icon="back"><a href="#homePage">Back</a></li>
-						</ul>
-					</li>
-					<li><a href="#browse-by?category=Priority">Priority</a></li>
-					<li><a href="#browse-by?category=All">All Items</a>
-						<!-- <ul>
-							<li><a href="#browse-by?category=Highlighted Green">Green</a></li>
-							<li><a href="#browse-by?category=Highlighted Yellow">Yellow</a></li>
-							<li><a href="#browse-by?category=Highlighted Red">Red</a></li>
-							<li data-icon="back"><a href="#homePage">Back</a></li>
-						</ul> -->
-					</li>
-				</ul>
+				<div>	
+					<a href="additem.html" id="mainAdd" data-ajax="false"><img src="./img/feature.png"></a>
+				</div>
+				<div id="browseContent">
+					<ul data-role="listview" data-inset="true" data-filter="true">
+						<li data-role="list-divider" class="ui-bar-d">
+							Browse by...
+						</li>
+						<li><a href="#browse-by?category=Start Date">Start Date</a></li>
+						<li><a href="#browse-by?category=End Date">End Date</a></li>
+						<li>Category
+							<ul>
+								<li>
+									<div class="ui-grid-a">
+										<div class="ui-block-a">
+											<div class="ui-bar ui-bar-d"><a href="#browse-by?category=Work"><img src="./img/Briefcase64.png" /><p>Work</p></a></div>
+										</div>
+										<div class="ui-block-b">
+											<div class="ui-bar ui-bar-d"><a href="#browse-by?category=School"><img src="./img/qualification-history64.png" /><p>School</p></a></div>
+										</div>
+										<div class="ui-block-a">
+											<div class="ui-bar ui-bar-d"><a href="#browse-by?category=Personal"><img src="./img/Man64.png" /><p>Personal</p></a></div>
+										</div>
+										<div class="ui-block-b">
+											<div class="ui-bar ui-bar-d"><a href="#homePage"><img src="./img/go-back64.png" /><p>Back</p></a></div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#browse-by?category=Priority">Priority</a></li>
+						<li><a href="#browse-by?category=All">All Items</a>
+							<!-- <ul>
+								<li><a href="#browse-by?category=Highlighted Green">Green</a></li>
+								<li><a href="#browse-by?category=Highlighted Yellow">Yellow</a></li>
+								<li><a href="#browse-by?category=Highlighted Red">Red</a></li>
+								<li data-icon="back"><a href="#homePage">Back</a></li>
+							</ul> -->
+						</li>
+					</ul>
+				</div>
 			</div>
 			<div id="footer" data-role="footer" data-position="fixed" data-id="home">
 				<div data-role="navbar">
@@ -84,7 +96,7 @@
 					<div data-role="collapsible" data-inset="true">
 						<h2>Credits</h2>
 							<p>ToDo image by <a href="http://mattrich.deviantart.com">Mattrich</a></p>
-							<p>All other icons where created based on the <strong>Pretty Office Icon Sets</strong> found at 
+							<p>Category icons are from the <strong>Pretty Office Icon Sets</strong> found at 
 								<a href="http://www.freeiconsweb.com/Free-Downloads.asp?id=1099" data-ajax="false">Free Icons Web</a>.
 							</p>
 						</ul>

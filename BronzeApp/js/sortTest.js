@@ -15,8 +15,8 @@ $(document).delegate("#newsstream", "pagecreate", function() {
 	//console.log(objArray);
 	// Sort the items by start date
 	objArray.sort(function(a, b) {
-		var aDate = a.startDate[1].replace(/-/g, "");
-		var bDate = b.startDate[1].replace(/-/g, "");
+		var aDate = a.endDate[1].replace(/-/g, "");
+		var bDate = b.endDate[1].replace(/-/g, "");
 		return aDate - bDate;
 	});
 	

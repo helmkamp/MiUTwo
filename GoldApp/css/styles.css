@@ -16,6 +16,10 @@ body {
 	padding-right: .3em;
 }
 
+#browseContent {
+	margin-top: 1em;
+}
+
 #searchContainer {
 	margin: auto;
 }
