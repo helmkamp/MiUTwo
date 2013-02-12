@@ -1,3 +1,4 @@
+//---Browse By...---//
 // The base code was found on the jQuery Mobile Docs site
 // It was then edited to fit my needs
 // Load the data for a specific category, based on
@@ -26,7 +27,7 @@ function showCategory(urlObj, options) {
 			// The markup we are going to inject into the content
 			// area of the page.
 			markup = "<ul id='categoryView' data-role='listview' data-inset='true' data-filter='true'>";
-
+			console.log(categoryName);
 		// The number of items in the category.
 		var numItems = localStorage.length,
 			key, value, obj,
@@ -48,7 +49,7 @@ function showCategory(urlObj, options) {
 			});
 
 			for(var i = 0; i < objArray.length; i++) {
-				markup += "<li><h1>" + objArray[i].itemName[1] + "</h1>";
+				markup += "<li class='catView'><h1>" + objArray[i].itemName[1] + "</h1>";
 				markup += "<p>" + objArray[i].startDate[0] + " " + objArray[i].startDate[1] + "</p>";
 				markup += "<p>" + objArray[i].endDate[0] + " " + objArray[i].endDate[1] + "</p>";
 				markup += "<p>" + objArray[i].category[0] + " " + objArray[i].category[1] + "</p>";
@@ -56,7 +57,9 @@ function showCategory(urlObj, options) {
 				markup += "<p>" + objArray[i].comments[0] + " " + objArray[i].comments[1] + "</p>";
 				markup += "</li>";
 			}
-		} else if(categoryName === "All") {
+		} else if(categoryName === "All Items") {
+			// Add a Delete All button
+			markup += "<a href='#' data-role='button' data-icon='delete' data-iconpos='right' data-theme='e' id='deleteAll'>Delete All Items</a>";
 			// The object of items for this category.
 			for(var a = 0; a < numItems; a++) {
 				key = localStorage.key(a);
@@ -65,12 +68,14 @@ function showCategory(urlObj, options) {
 
 				// Generate a list item for each item in the category
 				// and add it to our markup.
-				markup += "<li><h1>" + obj.itemName[1] + "</h1>";
+				markup += "<li class='catView'><a href='#editItem?edit=" + key + "'><h1>" + obj.itemName[1] + "</h1>";
 				markup += "<p>" + obj.startDate[0] + " " + obj.startDate[1] + "</p>";
 				markup += "<p>" + obj.endDate[0] + " " + obj.endDate[1] + "</p>";
 				markup += "<p>" + obj.priority[0] + " " + obj.priority[1] + "</p>";
 				markup += "<p>" + obj.highlighted[0] + " " + obj.highlighted[1] + "</p>";
 				markup += "<p>" + obj.comments[0] + " " + obj.comments[1] + "</p>";
+				markup += "</a>";
+				markup += "<a href='#delItem?delete=" + key + "' data-icon='delete' data-theme='d'></a>";
 				markup += "</li>";
 			}
 		} else if(categoryName === "Start Date") {
@@ -137,45 +142,14 @@ function showCategory(urlObj, options) {
 				// Generate a list item for each item in the category
 				// and add it to our markup.
 				if(categoryName === obj.category[1]) {
-					markup += "<li><h1>" + obj.itemName[1] + "</h1>";
+					markup += "<li><a href='#editItem?edit=" + key + "'><h1>" + obj.itemName[1] + "</h1>";
 					markup += "<p>" + obj.startDate[0] + " " + obj.startDate[1] + "</p>";
 					markup += "<p>" + obj.endDate[0] + " " + obj.endDate[1] + "</p>";
 					markup += "<p>" + obj.priority[0] + " " + obj.priority[1] + "</p>";
 					markup += "<p>" + obj.comments[0] + " " + obj.comments[1] + "</p>";
+					markup += "</a>";
+					markup += "<a href='#delItem?delete=" + key + "' data-icon='delete' data-theme='d'></a>";
 					markup += "</li>";
-				}
-
-				if((categoryName === "Highlighted Red") && (obj.highlighted[1] === "Yes")) {
-					if(obj.priority[1] === "3") {
-						markup += "<li><h1>" + obj.itemName[1] + "</h1>";
-						markup += "<p>" + obj.startDate[0] + " " + obj.startDate[1] + "</p>";
-						markup += "<p>" + obj.endDate[0] + " " + obj.endDate[1] + "</p>";
-						markup += "<p>" + obj.priority[0] + " " + obj.priority[1] + "</p>";
-						markup += "<p>" + obj.comments[0] + " " + obj.comments[1] + "</p>";
-						markup += "</li>";
-					}
-				}
-
-				if((categoryName === "Highlighted Yellow") && (obj.highlighted[1] === "Yes")) {
-					if(obj.priority[1] === "2") {
-						markup += "<li><h1>" + obj.itemName[1] + "</h1>";
-						markup += "<p>" + obj.startDate[0] + " " + obj.startDate[1] + "</p>";
-						markup += "<p>" + obj.endDate[0] + " " + obj.endDate[1] + "</p>";
-						markup += "<p>" + obj.priority[0] + " " + obj.priority[1] + "</p>";
-						markup += "<p>" + obj.comments[0] + " " + obj.comments[1] + "</p>";
-						markup += "</li>";
-					}
-				}
-
-				if((categoryName === "Highlighted Green") && (obj.highlighted[1] === "Yes")) {
-					if(obj.priority[1] === "1") {
-						markup += "<li><h1>" + obj.itemName[1] + "</h1>";
-						markup += "<p>" + obj.startDate[0] + " " + obj.startDate[1] + "</p>";
-						markup += "<p>" + obj.endDate[0] + " " + obj.endDate[1] + "</p>";
-						markup += "<p>" + obj.priority[0] + " " + obj.priority[1] + "</p>";
-						markup += "<p>" + obj.comments[0] + " " + obj.comments[1] + "</p>";
-						markup += "</li>";
-					}
 				}
 			}
 		}
@@ -239,3 +213,48 @@ $(document).on("pagebeforechange", function(e, data) {
 		}
 	}
 });
+//---End Browse By...---//
+
+//---News Stream---//
+$(document).delegate("#newsstream", "pagecreate", function() {
+
+	var objArray = [], // Create an empty array for the objects in localStorage to go in
+		numItemsLS = localStorage.length;
+
+	// Take each object from localStorage and push it into an array
+	for(var k = 0; k < numItemsLS; k++) {
+		var key = localStorage.key(k);
+		var value = localStorage.getItem(key);
+		var obj = $.parseJSON(value);
+		
+		objArray.push(obj);
+	}
+
+	//console.log(objArray);
+	// Sort the items by start date
+	objArray.sort(function(a, b) {
+		var aDate = a.endDate[1].replace(/-/g, "");
+		var bDate = b.endDate[1].replace(/-/g, "");
+		return aDate - bDate;
+	});
+	
+	// Create the list to show on the page
+	var newsMarkup = "<div data-role='collapsible-set' id='categoryView' data-inset='true'>";
+	
+	var numItemsOA = objArray.length;
+	for(var i = 0; i < numItemsOA; i++) {
+		newsMarkup += "<div data-role='collapsible'>";
+		newsMarkup += "<h1>" + objArray[i].itemName[1] + "</h1>";
+		newsMarkup += "<p class='ui-li-desc'>" + objArray[i].startDate[0] + " " + objArray[i].startDate[1] + "</p>";
+		newsMarkup += "<p class='ui-li-desc'>" + objArray[i].endDate[0] + " " + objArray[i].endDate[1] + "</p>";
+		newsMarkup += "<p class='ui-li-desc'>" + objArray[i].priority[0] + " " + objArray[i].priority[1] + "</p>";
+		newsMarkup += "<p class='ui-li-desc'>" + objArray[i].comments[0] + " " + objArray[i].comments[1] + "</p>";
+		newsMarkup += "</div>";
+	}
+
+	newsMarkup += "</div>";
+
+	// Add the list to the page
+	$('div#newsContent').html(newsMarkup);
+});
+//---End News Stream---//

@@ -34,17 +34,18 @@
 			</div>
 			<div data-role="content">
 				<div id="feature">
-					<a href="additem.html" id="mainAdd" data-ajax="false"><img src="./img/feature.png"></a>	
+					<a href="#addItem" id="mainAdd"><img src="./img/feature.png"></a>	
 				</div>
 				<div id="browseContent">
 					<ul data-role="listview" data-inset="true" data-filter="true">
 						<li data-role="list-divider" class="ui-bar-d">
 							Browse by...
 						</li>
+						<li><a href="#browse-by?category=All Items"><img src="./img/browseAllIconBig.png" class="ui-li-icon"/>All Items</a></li>
 						<li><a href="#browse-by?category=Start Date"><img src="./img/startDateIconBig.png" class="ui-li-icon"/>Start Date</a></li>
 						<li><a href="#browse-by?category=End Date"><img src="./img/endDateIconBig.png" class="ui-li-icon"/>End Date</a></li>
 						<li><img src="./img/categoryIconBig.png" class="ui-li-icon"/><span>Category</span>
-							<ul>
+							<ul data-theme="d">
 								<li><a href="#browse-by?category=Work">Work</a></li>
 								<li><a href="#browse-by?category=School">School</a></li>
 								<li><a href="#browse-by?category=Personal">Personal</a></li>
@@ -52,14 +53,6 @@
 							</ul>
 						</li>
 						<li><a href="#browse-by?category=Priority"><img src="./img/priorityIconBig.png" class="ui-li-icon"/>Priority</a></li>
-						<li><a href="#browse-by?category=All"><img src="./img/browseAllIconBig.png" class="ui-li-icon"/>All Items</a>
-							<!-- <ul>
-								<li><a href="#browse-by?category=Highlighted Green">Green</a></li>
-								<li><a href="#browse-by?category=Highlighted Yellow">Yellow</a></li>
-								<li><a href="#browse-by?category=Highlighted Red">Red</a></li>
-								<li data-icon="back"><a href="#homePage">Back</a></li>
-							</ul> -->
-						</li>
 					</ul>
 				</div>
 			</div>
@@ -71,6 +64,82 @@
 						<li><a href="#newsstream" data-icon="star" data-theme="c" id="newsstream">News</a></li>
 					</ul>
 				</div>
+			</div>
+		</div>
+
+		<!-- Add Item -->
+		<div class="wrap" id="addItem" data-role="page" data-theme="d" data-add-back-btn="true">
+			<div data-role="header">
+				<h1>Add Item</h1>
+			</div>
+			<div data-role="content">
+				<form action="" method="post" id="todoForm">
+					<fieldset>
+						<legend>Item Information</legend>
+						<label for="start">Start Date</label>
+						<input type="date" placeholder="MM/DD/YY" id="start" name="startDate" class="required"/>
+						<label for="end">Finish Date</label>
+						<input type="date" placeholder="MM/DD/YY" id="end" name="endDate" class="required" /> 
+						<label for="itemName">Item Name</label> <input type="text" name="itemName" placeholder="Homework" id="itemName" class="required" /> 
+						<label for="category">Catagory</label> 
+						<select name="category" id="category" data-theme="a" data-native-menu="false" class="required">
+							<option data-placeholder="true">Select A Category</option>
+							<option value="Work">Work</option>
+							<option value="School">School</option>
+							<option value="Personal">Personal</option>
+						</select> 
+						<label for="priority">Priority</label>
+						<input type="range" name="priority" min="1" max="3" value="1" id="priority" />
+						<label for="highlight">Highlighted</label>
+						<select name="highlight" id="highlight" data-role="slider">
+							<option value="No">No</option>
+							<option value="Yes">Yes</option>
+						</select>
+						<label for="comments">Comments:</label> <textarea placeholder="Add any additional information." id="comments" name="comments"></textarea>
+						<input type="hidden" value="true" />
+					</fieldset>
+					<input type="submit" value="Add Item" id="submit" data-theme="e"/>
+					<input type="reset" value="Reset" id="reset" data-theme="a"/>
+				</form>
+			</div>
+		</div>
+
+		<!-- Edit Item -->
+		<div class="wrap" id="editItem" data-role="page" data-theme="d" data-add-back-btn="true">
+			<div data-role="header">
+				<h1>Edit Item</h1>
+			</div>
+			<div data-role="content">
+				<form action="" method="post" id="editForm">
+					<fieldset>
+						<legend>Item Information</legend>
+						<label for="editStart">Start Date</label>
+						<input type="date" placeholder="MM/DD/YY" id="editStart" name="startDate" class="required"/>
+						<label for="editEnd">Finish Date</label>
+						<input type="date" placeholder="MM/DD/YY" id="editEnd" name="endDate" class="required" /> 
+						<label for="editName">Item Name</label>
+						<input type="text" name="itemName" placeholder="Homework" id="editName" class="required" /> 
+						<label for="editCategory">Catagory</label> 
+						<select name="category" id="editCategory" data-theme="a" data-native-menu="false" class="required">
+							<option data-placeholder="true">Select A Category</option>
+							<option value="Work">Work</option>
+							<option value="School">School</option>
+							<option value="Personal">Personal</option>
+						</select> 
+						<label for="editPriority">Priority</label>
+						<input type="range" name="priority" min="1" max="3" value="1" id="editPriority" />
+						<label for="highlight">Highlighted</label>
+						<select name="highlight" id="editHighlight" data-role="slider">
+							<option value="No">No</option>
+							<option value="Yes">Yes</option>
+						</select>
+						<label for="editComments">Comments:</label>
+						<textarea placeholder="Add any additional information." id="editComments" name="comments"></textarea>
+						<input type="hidden" value="key" id="hiddenKey" />
+					</fieldset>
+					<input type="submit" value="Save Item" id="submitEdit" data-theme="e"/>
+					<input type="reset" value="Reset" id="resetEdit" data-theme="a"/>
+				</form>
 			</div>
 		</div>
 		
@@ -87,7 +156,6 @@
 							<p>All other icons where created based on the <strong>Pretty Office Icon Sets</strong> found at 
 								<a href="http://www.freeiconsweb.com/Free-Downloads.asp?id=1099" data-ajax="false">Free Icons Web</a>.
 							</p>
-						</ul>
 					</div>
 					<div data-role="collapsible">
 						<h2>App Creator</h2>
@@ -150,8 +218,9 @@
 				<p>Sorry! The page you are looking for was not found.</p>
 			</div>
 		</div>
-
-		<script src="./js/browseByCategory.js"></script>
-		<script src="./js/sortTest.js"></script>
+		<script type="text/javascript" src="./js/libs/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="./js/json.js"></script>
+		<script type="text/javascript" src="./js/main.js"></script>
+		<script type="text/javascript" src="./js/browseByCategory.js"></script>
 	</body>
 </html>

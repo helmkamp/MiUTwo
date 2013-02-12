@@ -1,0 +1,17 @@
+*.txt
+
+.DS_Store
+
+*.docx
+idea
+
+*.zip
+
+*.pdf
+
+*.komodoproject
+main1.js
+*.config
+.project
+oldmain.js
+*.esproj
