@@ -12,12 +12,6 @@ idea
 *.komodoproject
 main1.js
 *.config
-<<<<<<< HEAD
 .project
 oldmain.js
 *.esproj
-=======
-GoldApp/js/sortTest.js
-BronzeApp/js/sortTest.js
-.project
->>>>>>> master
