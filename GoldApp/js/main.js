@@ -147,10 +147,6 @@ $('#addItem').on('pageinit', function () {
 			refreshPage();
 		}
 	});
-	$(".ui-datepicker").hide();
-	$("#start").focus(function() {
-		$(".ui-datepicker").show();
-	});
 });
 
 $('#editItem').on('pageinit', function () {
