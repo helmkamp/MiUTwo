@@ -111,7 +111,7 @@ $(document).on("pagebeforechange", function(e, data) {
 	}
 });
 
-$(document).on('pageinit', function() {
+$('#browse-by').on('pageinit', function() {
 	
 	$('#deleteAll').on('click', function() {
 		var del = confirm("Are you sure you want to delete all data?");
@@ -146,6 +146,10 @@ $('#addItem').on('pageinit', function () {
 			storeData(data);
 			refreshPage();
 		}
+	});
+	$(".ui-datepicker").hide();
+	$("#start").focus(function() {
+		$(".ui-datepicker").show();
 	});
 });
 

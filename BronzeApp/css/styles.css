@@ -29,6 +29,13 @@ body {
 		font-weight: bold;
 }
 
+#submit {
+	width: 13.5em;
+	/*height: 3em;*/
+	font-size: 150%;
+
+}
+
 .editLinks {
 	padding-top: .5em;
 	padding-right: 2em;
