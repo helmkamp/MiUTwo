@@ -72,6 +72,7 @@ function showCategory(urlObj, options) {
 				markup += "<li class='catView'><a href='#editItem?edit=" + key + "'><h1>" + obj.itemName[1] + "</h1>";
 				markup += "<p>" + obj.startDate[0] + " " + obj.startDate[1] + "</p>";
 				markup += "<p>" + obj.endDate[0] + " " + obj.endDate[1] + "</p>";
+				markup += "<p>" + obj.category[0] + " " + obj.category[1] + "</p>";
 				markup += "<p>" + obj.priority[0] + " " + obj.priority[1] + "</p>";
 				markup += "<p>" + obj.highlighted[0] + " " + obj.highlighted[1] + "</p>";
 				markup += "<p>" + obj.comments[0] + " " + obj.comments[1] + "</p>";
