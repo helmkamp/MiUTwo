@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
 -Andrew Helmkamp 
--Project 1
+-Project 3
 -MiU 1302
 -->
 <html>
@@ -17,10 +17,16 @@
 		<link rel="stylesheet" href="./css/themes/green.min.css" />
 		<!--Local CSS-->
 		<link rel="stylesheet" type="text/css" href="./css/styles.css">
-		<!--jQM CDN-->
+		<!--jQM & DateBox CDN-->
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" />
+		<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
 		<!--Page Title-->
 		<title>Time Manager</title>
 
@@ -73,15 +79,17 @@
 				<h1>Add Item</h1>
 			</div>
 			<div data-role="content">
-				<form action="" method="post" id="todoForm">
+				<form action="" method="post" id="todoForm"  data-theme="b">
 					<fieldset>
 						<legend>Item Information</legend>
-						<label for="start">Start Date</label>
-						<input type="date" placeholder="MM/DD/YY" id="start" name="startDate" class="required"/>
-						<label for="end">Finish Date</label>
-						<input type="date" placeholder="MM/DD/YY" id="end" name="endDate" class="required" /> 
-						<label for="itemName">Item Name</label> <input type="text" name="itemName" placeholder="Homework" id="itemName" class="required" /> 
-						<label for="category">Catagory</label> 
+						<div data-role="fieldcontain">
+							<label for="start">Start Date*</label>
+							<input type="date" placeholder="MM/DD/YY" id="start" name="startDate" data-role="datebox" data-options='{"mode": "calbox", "useFocus": true}' class="required"/>
+							<label for="end">Finish Date*</label>
+							<input type="date" placeholder="MM/DD/YY" id="end" name="endDate" data-role="datebox" data-options='{"mode": "calbox", "useFocus": true}' class="required" />
+						</div>
+						<label for="itemName">Item Name*</label> <input type="text" name="itemName" placeholder="Homework" id="itemName" class="required" /> 
+						<label for="category">Catagory*</label> 
 						<select name="category" id="category" data-theme="a" data-native-menu="false" class="required">
 							<option data-placeholder="true" value>Select A Category</option>
 							<option value="Work">Work</option>
@@ -98,8 +106,10 @@
 						<label for="comments">Comments:</label> <textarea placeholder="Add any additional information." id="comments" name="comments"></textarea>
 						<input type="hidden" value="true" />
 					</fieldset>
-					<input type="submit" value="Add Item" id="submit" data-theme="e"/>
-					<input type="reset" value="Reset" id="reset" data-theme="a"/>
+					<div class="ui-grid-a">
+						<div class="ui-block-a"><input type="submit" value="Add Item" id="submit" data-theme="e"/></div>
+						<div class="ui-block-b"><input type="reset" value="Reset" id="reset" data-theme="a"/></div>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -110,16 +120,16 @@
 				<h1>Edit Item</h1>
 			</div>
 			<div data-role="content">
-				<form action="" method="post" id="editForm">
+				<form action="" method="post" id="editForm" data-theme="b">
 					<fieldset>
 						<legend>Item Information</legend>
-						<label for="editStart">Start Date</label>
-						<input type="date" placeholder="MM/DD/YY" id="editStart" name="startDate" class="required"/>
-						<label for="editEnd">Finish Date</label>
-						<input type="date" placeholder="MM/DD/YY" id="editEnd" name="endDate" class="required" /> 
-						<label for="editName">Item Name</label>
+						<label for="editStart">Start Date*</label>
+						<input type="date" placeholder="MM/DD/YY" id="editStart" name="startDate" data-role="datebox" data-options='{"mode": "calbox", "useFocus": true}' class="required"/>
+						<label for="editEnd">Finish Date*</label>
+						<input type="date" placeholder="MM/DD/YY" id="editEnd" name="endDate" data-role="datebox" data-options='{"mode": "calbox", "useFocus": true}' class="required" /> 
+						<label for="editName">Item Name*</label>
 						<input type="text" name="itemName" placeholder="Homework" id="editName" class="required" /> 
-						<label for="editCategory">Catagory</label> 
+						<label for="editCategory">Catagory*</label> 
 						<select name="category" id="editCategory" data-theme="a" data-native-menu="false" class="required">
 							<option data-placeholder="true">Select A Category</option>
 							<option value="Work">Work</option>
@@ -134,11 +144,13 @@
 							<option value="Yes">Yes</option>
 						</select>
 						<label for="editComments">Comments:</label>
-						<textarea placeholder="Add any additional information." id="editComments" name="comments"></textarea>
+						<textarea placeholder="Add any additional information." id="editComments" name="editComments"></textarea>
 						<input type="hidden" value="key" id="hiddenKey" />
 					</fieldset>
-					<input type="submit" value="Save Item" id="submitEdit" data-theme="e"/>
-					<input type="reset" value="Reset" id="resetEdit" data-theme="a"/>
+					<div class="ui-grid-a">
+						<div class="ui-block-a"><input type="submit" value="Save Item" id="submitEdit" data-theme="e"/></div>
+						<div class="ui-block-b"><input type="submit" value="Cancel" id="cancelEdit" data-theme="a"/></div>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -203,6 +215,7 @@
 		<div class="wrap" data-role="page" data-theme="d" id="browse-by" data-add-back-btn="true">
 			<div data-role="header">
 				<h1></h1>
+				<a href='#' data-role='button' data-icon='delete' data-iconpos='right' data-theme='a' id='deleteAll' class="ui-btn-right">Clear All</a>
 			</div>
 			<div data-role="content" id="newsContent">
 				<!-- Dynamic Content Area -->

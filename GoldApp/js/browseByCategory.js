@@ -26,8 +26,9 @@ function showCategory(urlObj, options) {
 
 			// The markup we are going to inject into the content
 			// area of the page.
+			
 			markup = "<ul id='categoryView' data-role='listview' data-inset='true' data-filter='true'>";
-			console.log(categoryName);
+				
 		// The number of items in the category.
 		var numItems = localStorage.length,
 			key, value, obj,
@@ -59,7 +60,7 @@ function showCategory(urlObj, options) {
 			}
 		} else if(categoryName === "All Items") {
 			// Add a Delete All button
-			markup += "<a href='#' data-role='button' data-icon='delete' data-iconpos='right' data-theme='e' id='deleteAll'>Delete All Items</a>";
+			//markup += "<a href='#' data-role='button' data-icon='delete' data-iconpos='right' data-theme='e' id='deleteAll'>Delete All Items</a>";
 			// The object of items for this category.
 			for(var a = 0; a < numItems; a++) {
 				key = localStorage.key(a);
@@ -71,6 +72,7 @@ function showCategory(urlObj, options) {
 				markup += "<li class='catView'><a href='#editItem?edit=" + key + "'><h1>" + obj.itemName[1] + "</h1>";
 				markup += "<p>" + obj.startDate[0] + " " + obj.startDate[1] + "</p>";
 				markup += "<p>" + obj.endDate[0] + " " + obj.endDate[1] + "</p>";
+				markup += "<p>" + obj.category[0] + " " + obj.category[1] + "</p>";
 				markup += "<p>" + obj.priority[0] + " " + obj.priority[1] + "</p>";
 				markup += "<p>" + obj.highlighted[0] + " " + obj.highlighted[1] + "</p>";
 				markup += "<p>" + obj.comments[0] + " " + obj.comments[1] + "</p>";
@@ -78,6 +80,7 @@ function showCategory(urlObj, options) {
 				markup += "<a href='#delItem?delete=" + key + "' data-icon='delete' data-theme='d'></a>";
 				markup += "</li>";
 			}
+
 		} else if(categoryName === "Start Date") {
 			// Take each object from localStorage and push it into an array
 			for(var p = 0; p < numItems; p++) {
@@ -142,13 +145,11 @@ function showCategory(urlObj, options) {
 				// Generate a list item for each item in the category
 				// and add it to our markup.
 				if(categoryName === obj.category[1]) {
-					markup += "<li><a href='#editItem?edit=" + key + "'><h1>" + obj.itemName[1] + "</h1>";
+					markup += "<li><h1>" + obj.itemName[1] + "</h1>";
 					markup += "<p>" + obj.startDate[0] + " " + obj.startDate[1] + "</p>";
 					markup += "<p>" + obj.endDate[0] + " " + obj.endDate[1] + "</p>";
 					markup += "<p>" + obj.priority[0] + " " + obj.priority[1] + "</p>";
 					markup += "<p>" + obj.comments[0] + " " + obj.comments[1] + "</p>";
-					markup += "</a>";
-					markup += "<a href='#delItem?delete=" + key + "' data-icon='delete' data-theme='d'></a>";
 					markup += "</li>";
 				}
 			}
@@ -174,7 +175,6 @@ function showCategory(urlObj, options) {
 
 		// Enhance the listview we just injected.
 		$content.find(":jqmData(role=listview)").listview();
-
 		// We don't want the data-url of the page we just modified
 		// to be the url that shows up in the browser's location field,
 		// so set the dataUrl option to the URL for the category

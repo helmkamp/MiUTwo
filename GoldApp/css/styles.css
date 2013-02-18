@@ -28,11 +28,14 @@
 	margin: auto;
 }
 
+#start, #end, #editStart, #editEnd{
+	color: black !important;
+}
+
 .error {
 	display: block;
 	margin: 10px 0;
 	color: red;
-	font-weight: bold;
 }
 
 .editLinks {
