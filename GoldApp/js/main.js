@@ -43,7 +43,7 @@ var editItem = function(urlObj, options) {
 			if(item.highlighted[1] === "Yes") {
 				$('#editHighlight').attr("checked", "checked");
 			}
-			$('#comments').val(item.comments[1]);
+			$('#editComments').val(item.comments[1]);
 			$('#hiddenKey').val(itemKey);
 			console.log(item);
 		
@@ -78,6 +78,11 @@ function refreshPage() {
 		reloadPage: true
 	});
 }
+
+$('#cancelEdit').click(function() {
+	history.back();
+	return false;
+});
 
 // Listen for any attempts to call changePage().
 $(document).on("pagebeforechange", function(e, data) {
