@@ -69,7 +69,7 @@ function showCategory(urlObj, options) {
 
 				// Generate a list item for each item in the category
 				// and add it to our markup.
-				markup += "<li class='catView'><a href='#editItem?edit=" + key + "'><h1>" + obj.itemName[1] + "</h1>";
+				markup += "<li><a href='#editItem?edit=" + key + "'><h1>" + obj.itemName[1] + "</h1>";
 				markup += "<p>" + obj.startDate[0] + " " + obj.startDate[1] + "</p>";
 				markup += "<p>" + obj.endDate[0] + " " + obj.endDate[1] + "</p>";
 				markup += "<p>" + obj.category[0] + " " + obj.category[1] + "</p>";
