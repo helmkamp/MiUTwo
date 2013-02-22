@@ -23,7 +23,6 @@ var storeData = function(data, key) {
 
 		//Save data into local storage using Stringify
 		localStorage.setItem(id, JSON.stringify(item));
-		// window.location.reload();
 		alert("Item Saved");
 	};
 
