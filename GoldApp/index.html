@@ -88,7 +88,8 @@
 							<label for="end">Finish Date*</label>
 							<input type="date" placeholder="MM/DD/YY" id="end" name="endDate" data-role="datebox" data-options='{"mode": "calbox", "useFocus": true, "useButton": false}' class="required" />
 						</div>
-						<label for="itemName">Item Name*</label> <input type="text" name="itemName" placeholder="Homework" id="itemName" class="required" /> 
+						<label for="itemName">Item Name*</label>
+						<input type="text" name="itemName" placeholder="Homework" id="itemName" class="required" data-theme="b" /> 
 						<label for="category">Catagory*</label> 
 						<select name="category" id="category" data-theme="a" data-native-menu="false" class="required">
 							<option data-placeholder="true" value>Select A Category</option>
@@ -97,13 +98,8 @@
 							<option value="Personal">Personal</option>
 						</select> 
 						<label for="priority">Priority</label>
-						<input type="range" name="priority" min="1" max="3" value="1" id="priority" />
-						<label for="highlight">Highlighted</label>
-						<select name="highlight" id="highlight" data-role="slider">
-							<option value="No">No</option>
-							<option value="Yes">Yes</option>
-						</select>
-						<label for="comments">Comments:</label> <textarea placeholder="Add any additional information." id="comments" name="comments"></textarea>
+						<input type="range" name="priority" min="1" max="3" value="1" id="priority" data-theme="b" />
+						<label for="comments">Comments:</label> <textarea placeholder="Add any additional information." id="comments" name="comments" data-theme="b"></textarea>
 						<input type="hidden" value="true" />
 					</fieldset>
 					<div class="ui-grid-a">
@@ -128,7 +124,7 @@
 						<label for="editEnd">Finish Date*</label>
 						<input type="date" placeholder="MM/DD/YY" id="editEnd" name="endDate" data-role="datebox" data-options='{"mode": "calbox", "useFocus": true, "useButton": false}' class="required" /> 
 						<label for="editName">Item Name*</label>
-						<input type="text" name="itemName" placeholder="Homework" id="editName" class="required" /> 
+						<input type="text" name="itemName" placeholder="Homework" id="editName" data-theme="b" class="required" /> 
 						<label for="editCategory">Catagory*</label> 
 						<select name="category" id="editCategory" data-theme="a" data-native-menu="false" class="required">
 							<option data-placeholder="true">Select A Category</option>
@@ -137,14 +133,9 @@
 							<option value="Personal">Personal</option>
 						</select> 
 						<label for="editPriority">Priority</label>
-						<input type="range" name="priority" min="1" max="3" value="1" id="editPriority" />
-						<label for="highlight">Highlighted</label>
-						<select name="highlight" id="editHighlight" data-role="slider">
-							<option value="No">No</option>
-							<option value="Yes">Yes</option>
-						</select>
+						<input type="range" name="priority" min="1" max="3" value="1" id="editPriority" data-theme="b" />
 						<label for="editComments">Comments:</label>
-						<textarea placeholder="Add any additional information." id="editComments" name="editComments"></textarea>
+						<textarea placeholder="Add any additional information." id="editComments" name="editComments" data-theme="b"></textarea>
 						<input type="hidden" value="key" id="hiddenKey" />
 					</fieldset>
 					<div class="ui-grid-a">

@@ -8,7 +8,7 @@ var autofillData = function() {
 
 var storeData = function(data, key) {
 		var id = typeof key !== 'undefined' ? key : Math.floor(Math.random() * 1000000001);
-		data[6].value = typeof data[6].value !== 'undefined' ? data[6].value : "";
+		data[5].value = typeof data[5].value !== 'undefined' ? data[5].value : "";
 
 		//Gather data from form and store in an object
 		//Object properties contain array with the form label and value
@@ -18,8 +18,7 @@ var storeData = function(data, key) {
 		item.itemName = ["Item Name:", data[2].value];
 		item.category = ["Category:", data[3].value];
 		item.priority = ["Priority:", data[4].value];
-		item.highlighted = ["Highlighted:", data[5].value];
-		item.comments = ["Comments:", data[6].value];
+		item.comments = ["Comments:", data[5].value];
 
 		//Save data into local storage using Stringify
 		localStorage.setItem(id, JSON.stringify(item));
@@ -39,9 +38,6 @@ var editItem = function(urlObj, options) {
 			$('#editName').val(item.itemName[1]);
 			$('#editCategory').val(item.category[1]);
 			$('#editPriority').val(item.priority[1]);
-			if(item.highlighted[1] === "Yes") {
-				$('#editHighlight').attr("checked", "checked");
-			}
 			$('#editComments').val(item.comments[1]);
 			$('#hiddenKey').val(itemKey);
 			console.log(item);
