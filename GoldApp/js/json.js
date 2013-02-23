@@ -5,7 +5,6 @@ var json = {
         "itemName":["Item Name:", "Assignment 1: Project"],
         "category":["Category:", "School"],
         "priority":["Priority:", "1"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Create new index page"]
     },
     "item2":{
@@ -14,7 +13,6 @@ var json = {
         "itemName":["Item Name:", "SBE Meeting"],
         "category":["Category:", "Work"],
         "priority":["Priority:", "2"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Location: Rockers @ 0900"]
     },
     "item3":{
@@ -23,7 +21,6 @@ var json = {
         "itemName":["Item Name:", "Grocery Shopping"],
         "category":["Category:", "Personal"],
         "priority":["Priority:", "3"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "List in AllRecipes app"]
     },
     "item4":{
@@ -32,7 +29,6 @@ var json = {
         "itemName":["Item Name:", "EET Training"],
         "category":["Category:", "Work"],
         "priority":["Priority:", "1"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "CBT on ADLS"]
     },
     "item5":{
@@ -41,7 +37,6 @@ var json = {
         "itemName":["Item Name:", "Exercise Planning"],
         "category":["Category:", "Work"],
         "priority":["Priority:", "3"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Create injects for PA players"]
     },
     "item6":{
@@ -50,7 +45,6 @@ var json = {
         "itemName":["Item Name:", "Reading Assignment"],
         "category":["Category:", "School"],
         "priority":["Priority:", "2"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Read pages 30-33 in textbook"]
     },
     "item7":{
@@ -59,7 +53,6 @@ var json = {
         "itemName":["Item Name:", "Move Office"],
         "category":["Category:", "Work"],
         "priority":["Priority:", "1"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "None"]
     },
     "item8":{
@@ -68,7 +61,6 @@ var json = {
         "itemName":["Item Name:", "PA NCO Meeting"],
         "category":["Category:", "Work"],
         "priority":["Priority:", "1"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Meet with section leads about new assignment flow"]
     },
     "item9":{
@@ -77,7 +69,6 @@ var json = {
         "itemName":["Item Name:", "Exercise"],
         "category":["Category:", "Work"],
         "priority":["Priority:", "3"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "VERY LONG WEEK"]
     },
     "item10":{
@@ -86,7 +77,6 @@ var json = {
         "itemName":["Item Name:", "Register w/ TriCare"],
         "category":["Category:", "Personal"],
         "priority":["Priority:", "2"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "None"]
     },
     "item11":{
@@ -95,7 +85,6 @@ var json = {
         "itemName":["Item Name:", "Pancake Breakfast"],
         "category":["Category:", "Personal"],
         "priority":["Priority:", "1"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "0700-1000 @ Sven's Den $5 for All-You-Can-Eat"]
     },
     "item12":{
@@ -104,7 +93,6 @@ var json = {
         "itemName":["Item Name:", "SBE"],
         "category":["Category:", "Work"],
         "priority":["Priority:", "2"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Setup at 1100, Event starts at 1500"]
     },
     "item13":{
@@ -113,7 +101,6 @@ var json = {
         "itemName":["Item Name:", "Chief's Recognition Ceremony"],
         "category":["Category:", "Work"],
         "priority":["Priority:", "1"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "1800-2100 @ E-club"]
     },
     "item14":{
@@ -122,7 +109,6 @@ var json = {
         "itemName":["Item Name:", "Call CDC"],
         "category":["Category:", "Personal"],
         "priority":["Priority:", "3"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "None"]
     },
     "item15":{
@@ -131,7 +117,6 @@ var json = {
         "itemName":["Item Name:", "Internal SBE Meeting"],
         "category":["Category:", "Work"],
         "priority":["Priority:", "1"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Address times and attire"]
     },
     "item16":{
@@ -140,7 +125,6 @@ var json = {
         "itemName":["Item Name:", "Assignment 2: Project"],
         "category":["Category:", "School"],
         "priority":["Priority:", "3"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Look at FSO"]
     },
     "item17":{
@@ -149,7 +133,6 @@ var json = {
         "itemName":["Item Name:", "Week 2 First Commit"],
         "category":["Category:", "School"],
         "priority":["Priority:", "2"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Push first meaningful Commit"]
     },
     "item18":{
@@ -158,7 +141,6 @@ var json = {
         "itemName":["Item Name:", "Organize new office"],
         "category":["Category:", "Personal"],
         "priority":["Priority:", "1"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Clean and hookup computer in old office"]
     },
     "item19":{
@@ -167,7 +149,6 @@ var json = {
         "itemName":["Item Name:", "Church"],
         "category":["Category:", "Personal"],
         "priority":["Priority:", "1"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Think about going to church"]
     },
     "item20":{
@@ -176,7 +157,6 @@ var json = {
         "itemName":["Item Name:", "Assignment 3: Project"],
         "category":["Category:", "School"],
         "priority":["Priority:", "2"],
-        "highlighted":["Highlighted:", "Yes"],
         "comments":["Comments:", "Look at FSO"]
     }
 };

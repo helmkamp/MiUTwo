@@ -74,7 +74,6 @@ function showCategory(urlObj, options) {
 				markup += "<p>" + obj.endDate[0] + " " + obj.endDate[1] + "</p>";
 				markup += "<p>" + obj.category[0] + " " + obj.category[1] + "</p>";
 				markup += "<p>" + obj.priority[0] + " " + obj.priority[1] + "</p>";
-				markup += "<p>" + obj.highlighted[0] + " " + obj.highlighted[1] + "</p>";
 				markup += "<p>" + obj.comments[0] + " " + obj.comments[1] + "</p>";
 				markup += "</a>";
 				markup += "<a href='#delItem?delete=" + key + "' data-icon='delete' data-theme='d'></a>";
@@ -103,7 +102,6 @@ function showCategory(urlObj, options) {
 				markup += "<p>" + objArray[s].startDate[0] + " " + objArray[s].startDate[1] + "</p>";
 				markup += "<p>" + objArray[s].endDate[0] + " " + objArray[s].endDate[1] + "</p>";
 				markup += "<p>" + objArray[s].priority[0] + " " + objArray[s].priority[1] + "</p>";
-				markup += "<p>" + objArray[s].highlighted[0] + " " + objArray[s].highlighted[1] + "</p>";
 				markup += "<p>" + objArray[s].comments[0] + " " + objArray[s].comments[1] + "</p>";
 				markup += "</li>";
 			}
@@ -130,7 +128,6 @@ function showCategory(urlObj, options) {
 				markup += "<p>" + objArray[s].startDate[0] + " " + objArray[s].startDate[1] + "</p>";
 				markup += "<p>" + objArray[s].endDate[0] + " " + objArray[s].endDate[1] + "</p>";
 				markup += "<p>" + objArray[s].priority[0] + " " + objArray[s].priority[1] + "</p>";
-				markup += "<p>" + objArray[s].highlighted[0] + " " + objArray[s].highlighted[1] + "</p>";
 				markup += "<p>" + objArray[s].comments[0] + " " + objArray[s].comments[1] + "</p>";
 				markup += "</li>";
 			}
