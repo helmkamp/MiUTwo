@@ -26,7 +26,7 @@ function showCategory(urlObj, options) {
 
 			// The markup we are going to inject into the content
 			// area of the page.
-			
+			//markup = "<div><a href='#' data-role='button' data-icon='delete' data-iconpos='right' data-theme='a' id='deleteAll'>Clear All Data</a></div>";
 			markup = "<ul id='categoryView' data-role='listview' data-inset='true' data-filter='true'>";
 				
 		// The number of items in the category.
@@ -123,12 +123,12 @@ function showCategory(urlObj, options) {
 				return aDate - bDate;
 			});
 
-			for(var s = 0; s < objArray.length; s++) {
-				markup += "<li><h1>" + objArray[s].itemName[1] + "</h1>";
-				markup += "<p>" + objArray[s].startDate[0] + " " + objArray[s].startDate[1] + "</p>";
-				markup += "<p>" + objArray[s].endDate[0] + " " + objArray[s].endDate[1] + "</p>";
-				markup += "<p>" + objArray[s].priority[0] + " " + objArray[s].priority[1] + "</p>";
-				markup += "<p>" + objArray[s].comments[0] + " " + objArray[s].comments[1] + "</p>";
+			for(var e = 0; e < objArray.length; e++) {
+				markup += "<li><h1>" + objArray[e].itemName[1] + "</h1>";
+				markup += "<p>" + objArray[e].startDate[0] + " " + objArray[e].startDate[1] + "</p>";
+				markup += "<p>" + objArray[e].endDate[0] + " " + objArray[e].endDate[1] + "</p>";
+				markup += "<p>" + objArray[e].priority[0] + " " + objArray[e].priority[1] + "</p>";
+				markup += "<p>" + objArray[e].comments[0] + " " + objArray[e].comments[1] + "</p>";
 				markup += "</li>";
 			}
 		} else {

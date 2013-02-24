@@ -22,7 +22,15 @@ var storeData = function(data, key) {
 
 		//Save data into local storage using Stringify
 		localStorage.setItem(id, JSON.stringify(item));
-		alert("Item Saved");
+		$('<div>').simpledialog2({
+			mode: 'blank',
+			headerText: 'Task Saved',
+			zindex: 1000,
+			blankContent :
+				"<ul data-role='listview'><li><img src='./img/success64.png' />The task has been saved successfully!</li>"+
+				"<a rel='close' data-role='button' href='#'>Close</a>",
+			callbackClose: refreshPage
+		});
 	};
 
 var editItem = function(urlObj, options) {
@@ -32,16 +40,14 @@ var editItem = function(urlObj, options) {
 			value = localStorage.getItem(itemKey),
 			item = JSON.parse(value);
 
-			//populate with current values
-			$('#editStart').val(item.startDate[1]);
-			$('#editEnd').val(item.endDate[1]);
-			$('#editName').val(item.itemName[1]);
-			$('#editCategory').val(item.category[1]);
-			$('#editPriority').val(item.priority[1]);
-			$('#editComments').val(item.comments[1]);
-			$('#hiddenKey').val(itemKey);
-			console.log(item);
-		
+		//populate with current values
+		$('#editStart').val(item.startDate[1]);
+		$('#editEnd').val(item.endDate[1]);
+		$('#editName').val(item.itemName[1]);
+		$('#editCategory').val(item.category[1]);
+		$('#editPriority').val(item.priority[1]);
+		$('#editComments').val(item.comments[1]);
+		$('#hiddenKey').val(itemKey);
 		
 		$.mobile.changePage($('#editItem'));
 	};
@@ -49,17 +55,27 @@ var editItem = function(urlObj, options) {
 
 var deleteItem = function(urlObj, options) {
 		var itemKey = urlObj.hash.replace(/.*delete=/, ""),
-			pageSelector = urlObj.hash.replace(/\?.*$/, ""),
-			ask = confirm("Are you sure you want to delete this item?");
-		console.log(itemKey);
-		if(ask) {
-			localStorage.removeItem(itemKey);
-			refreshPage();
-			alert("Item has been deleted.");
-		} else {
-			refreshPage();
-			alert("The item has not been deleted.");
-		}
+			pageSelector = urlObj.hash.replace(/\?.*$/, "");
+		$('<div>').simpledialog2({
+			mode: 'button',
+			headerText: 'Delete Task',
+			zindex: 1000,
+			buttonPrompt: "<ul data-role='listview'><li><img src='./img/warning.png' />Are you sure you want to delete this task?</li>",
+			buttons : {
+				'OK': { click: function () {
+						localStorage.removeItem(itemKey);
+						refreshPage();
+					}
+				},
+				'Cancel': { click: function () {
+						this.close();
+						refreshPage();
+					},
+					icon: "delete",
+					theme: "c"
+				}
+			}
+		});
 	};
 
 // This function was created by Scott W. Bradley
@@ -81,27 +97,13 @@ $('#cancelEdit').click(function() {
 
 // Listen for any attempts to call changePage().
 $(document).on("pagebeforechange", function(e, data) {
-
-	// We only want to handle changePage() calls where the caller is
-	// asking us to load a page by URL.
 	if(typeof data.toPage === "string") {
-
-		// We are being asked to load a page by URL, but we only
-		// want to handle URLs that request the data for a specific
-		// category.
 		var u = $.mobile.path.parseUrl(data.toPage),
 			re = /^#delItem/,
 			reTwo = /^#editItem/;
 
 		if(u.hash.search(re) !== -1) {
-
-			// We're being asked to display the items for a specific category.
-			// Call our internal method that builds the content for the category
-			// on the fly based on our in-memory category data structure.
 			deleteItem(u, data.options);
-
-			// Make sure to tell changePage() we've handled this call so it doesn't
-			// have to do anything.
 			e.preventDefault();
 		}
 		if(u.hash.search(reTwo) !== -1) {
@@ -114,26 +116,49 @@ $(document).on("pagebeforechange", function(e, data) {
 $('#browse-by').on('pageinit', function() {
 	
 	$('#deleteAll').on('click', function() {
-		var del = confirm("Are you sure you want to delete all data?");
-		if((del) && (localStorage.length >= 1)) {
-			localStorage.clear();
-			alert("All data has been cleared.");
-			$.mobile.changePage($('#homePage'));
-			return false;
-		} else if((!del) && (localStorage.length >= 1)) {
-			alert("No data has been cleared.");
-			refreshPage();
-		}
+		$('<div>').simpledialog2({
+			mode: 'button',
+			headerText: 'Delete All',
+			zindex: 1000,
+			buttonPrompt: "<ul data-role='listview'><li><img src='./img/warning.png' />Are you sure you want to delete all tasks?</li>",
+			buttons : {
+				'OK': { click: function () {
+						localStorage.clear();
+						refreshPage();
+					}
+				},
+				'Cancel': { click: function () {
+						this.close();
+						refreshPage();
+					},
+					icon: "delete",
+					theme: "c"
+				}
+			}
+		});
 	});
 });
 
-$('#homePage').on('pageinit', function() {
-	//code needed for home page goes here
+$('#homePage').on('pagebeforeshow', function() {
 	if (localStorage.length === 0) {
-		var addData = confirm("There is no data to display. Add test data?");
-		if (addData) {
-			autofillData();
-		}
+		$('<div>').simpledialog2({
+			mode: 'button',
+			headerText: 'No Data',
+			zindex: 1000,
+			buttonPrompt: 'You have nothing to do. Would you like to load sample data?',
+			buttons : {
+				'OK': { click: function () {
+						autofillData();
+					}
+				},
+				'Cancel': { click: function () {
+						this.close();
+					},
+					icon: "delete",
+					theme: "c"
+				}
+			}
+		});
 	}
 });
 
@@ -144,7 +169,6 @@ $('#addItem').on('pageinit', function () {
 		submitHandler: function() {
 			var data = myForm.serializeArray();
 			storeData(data);
-			refreshPage();
 		}
 	});
 });
@@ -157,7 +181,6 @@ $('#editItem').on('pageinit', function () {
 		submitHandler: function() {
 			var data = myForm.serializeArray();
 			storeData(data, key);
-			refreshPage();
 		}
 	});
 });
