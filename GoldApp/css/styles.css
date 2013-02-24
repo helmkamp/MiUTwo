@@ -11,6 +11,10 @@
 	color: black !important;
 }
 
+#clearAllDiv{
+	margin: 0 1em;
+}
+
 .error {
 	display: block;
 	margin: 10px 0;
