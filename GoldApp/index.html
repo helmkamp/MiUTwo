@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
 -Andrew Helmkamp 
--Project 3
+-Project 4
 -MiU 1302
 -->
 <html>
@@ -34,24 +34,25 @@
 
 	<body>
 		<!--Home Page-->
-		<div class="wrap" data-theme="d" data-role="page" id="homePage">
-		    <div data-role="header">
-				<h1>Time Manager</h1>
+		<div class="wrap" data-theme="c" data-role="page" id="homePage">
+		    <div data-role="header" class="ui-bar-c">
+				<h1>Time Well Spent</h1>
+				<img src="./img/logo.png" class="ui-btn-right">
 			</div>
 			<div data-role="content">
 				<div id="feature">
-					<a href="#addItem" id="mainAdd"><img src="./img/feature.png"></a>	
+					<a href="#addItem" id="mainAdd"><img src="./img/feature-dark-text.png"></a>	
 				</div>
 				<div id="browseContent">
 					<ul data-role="listview" data-inset="true" data-filter="true">
-						<li data-role="list-divider" class="ui-bar-d">
+						<li data-role="list-divider" class="ui-bar-c">
 							Browse by...
 						</li>
 						<li><a href="#browse-by?category=All Items"><img src="./img/browseAllIconBig.png" class="ui-li-icon"/>All Items</a></li>
 						<li><a href="#browse-by?category=Start Date"><img src="./img/startDateIconBig.png" class="ui-li-icon"/>Start Date</a></li>
 						<li><a href="#browse-by?category=End Date"><img src="./img/endDateIconBig.png" class="ui-li-icon"/>End Date</a></li>
 						<li><img src="./img/categoryIconBig.png" class="ui-li-icon"/><span>Category</span>
-							<ul data-theme="d">
+							<ul data-theme="c">
 								<li><a href="#browse-by?category=Work">Work</a></li>
 								<li><a href="#browse-by?category=School">School</a></li>
 								<li><a href="#browse-by?category=Personal">Personal</a></li>
@@ -65,21 +66,22 @@
 			<div id="footer" data-role="footer" data-position="fixed" data-id="home">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#homePage" data-icon="home" data-theme="c" class="ui-btn-active ui-state-persist">Home</a></li>
-						<li><a href="#infoPage" data-icon="info" data-theme="c" id="infoPage">Info</a></li>
-						<li><a href="#newsstream" data-icon="star" data-theme="c" id="newsstream">News</a></li>
+						<li><a href="#homePage" data-icon="home" data-iconpos="left" data-theme="c" class="ui-btn-active ui-state-persist">Home</a></li>
+						<li><a href="#infoPage" data-icon="info" data-iconpos="left" data-theme="c" id="infoPage">Info</a></li>
+						<li><a href="#newsstream" data-icon="star" data-iconpos="left" data-theme="c" id="newsstream">News</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 
 		<!-- Add Item -->
-		<div class="wrap" id="addItem" data-role="page" data-theme="d" data-add-back-btn="true">
-			<div data-role="header">
+		<div class="wrap" id="addItem" data-role="page" data-theme="c" data-add-back-btn="true">
+			<div data-role="header" data-theme="c">
 				<h1>Add Item</h1>
+				<img src="./img/logo.png" class="ui-btn-right">
 			</div>
 			<div data-role="content">
-				<form action="" method="post" id="todoForm"  data-theme="b">
+				<form action="" method="post" id="todoForm"  data-theme="f">
 					<fieldset>
 						<legend>Item Information</legend>
 						<div data-role="fieldcontain">
@@ -89,34 +91,35 @@
 							<input type="date" placeholder="MM/DD/YY" id="end" name="endDate" data-role="datebox" data-options='{"mode": "calbox", "useFocus": true, "useButton": false}' class="required" />
 						</div>
 						<label for="itemName">Item Name*</label>
-						<input type="text" name="itemName" placeholder="Homework" id="itemName" class="required" data-theme="b" /> 
+						<input type="text" name="itemName" placeholder="Homework" id="itemName" class="required" data-theme="f" /> 
 						<label for="category">Catagory*</label> 
-						<select name="category" id="category" data-theme="a" data-native-menu="false" class="required">
+						<select name="category" id="category" data-theme="f" data-native-menu="false" class="required">
 							<option data-placeholder="true" value>Select A Category</option>
 							<option value="Work">Work</option>
 							<option value="School">School</option>
 							<option value="Personal">Personal</option>
 						</select> 
 						<label for="priority">Priority</label>
-						<input type="range" name="priority" min="1" max="3" value="1" id="priority" data-theme="b" />
-						<label for="comments">Comments:</label> <textarea placeholder="Add any additional information." id="comments" name="comments" data-theme="b"></textarea>
+						<input type="range" name="priority" min="1" max="3" value="1" id="priority" />
+						<label for="comments">Comments:</label> <textarea placeholder="Add any additional information." id="comments" name="comments" data-theme="f"></textarea>
 						<input type="hidden" value="true" />
 					</fieldset>
 					<div class="ui-grid-a">
-						<div class="ui-block-a"><input type="submit" value="Add Item" id="submit" data-theme="e"/></div>
-						<div class="ui-block-b"><input type="reset" value="Reset" id="reset" data-theme="a"/></div>
+						<div class="ui-block-a"><input type="submit" value="Add Item" id="submit" data-theme="a"/></div>
+						<div class="ui-block-b"><input type="reset" value="Reset" id="reset" data-theme="f"/></div>
 					</div>
 				</form>
 			</div>
 		</div>
 
 		<!-- Edit Item -->
-		<div class="wrap" id="editItem" data-role="page" data-theme="d" data-add-back-btn="true">
-			<div data-role="header">
+		<div class="wrap" id="editItem" data-role="page" data-theme="c" data-add-back-btn="true">
+			<div data-role="header" data-theme="c">
 				<h1>Edit Item</h1>
+				<img src="./img/logo.png" class="ui-btn-right">
 			</div>
 			<div data-role="content">
-				<form action="" method="post" id="editForm" data-theme="b">
+				<form action="" method="post" id="editForm" data-theme="f">
 					<fieldset>
 						<legend>Item Information</legend>
 						<label for="editStart">Start Date*</label>
@@ -124,32 +127,33 @@
 						<label for="editEnd">Finish Date*</label>
 						<input type="date" placeholder="MM/DD/YY" id="editEnd" name="endDate" data-role="datebox" data-options='{"mode": "calbox", "useFocus": true, "useButton": false}' class="required" /> 
 						<label for="editName">Item Name*</label>
-						<input type="text" name="itemName" placeholder="Homework" id="editName" data-theme="b" class="required" /> 
+						<input type="text" name="itemName" placeholder="Homework" id="editName" data-theme="f" class="required" /> 
 						<label for="editCategory">Catagory*</label> 
-						<select name="category" id="editCategory" data-theme="a" data-native-menu="false" class="required">
+						<select name="category" id="editCategory" data-theme="f" data-native-menu="false" class="required">
 							<option data-placeholder="true">Select A Category</option>
 							<option value="Work">Work</option>
 							<option value="School">School</option>
 							<option value="Personal">Personal</option>
 						</select> 
 						<label for="editPriority">Priority</label>
-						<input type="range" name="priority" min="1" max="3" value="1" id="editPriority" data-theme="b" />
+						<input type="range" name="priority" min="1" max="3" value="1" id="editPriority" data-theme="f" />
 						<label for="editComments">Comments:</label>
-						<textarea placeholder="Add any additional information." id="editComments" name="editComments" data-theme="b"></textarea>
+						<textarea placeholder="Add any additional information." id="editComments" name="editComments" data-theme="f"></textarea>
 						<input type="hidden" value="key" id="hiddenKey" />
 					</fieldset>
 					<div class="ui-grid-a">
-						<div class="ui-block-a"><input type="submit" value="Save Item" id="submitEdit" data-theme="e"/></div>
-						<div class="ui-block-b"><input type="submit" value="Cancel" id="cancelEdit" data-theme="a"/></div>
+						<div class="ui-block-a"><input type="submit" value="Save Item" id="submitEdit" data-theme="a"/></div>
+						<div class="ui-block-b"><input type="submit" value="Cancel" id="cancelEdit" data-theme="f"/></div>
 					</div>
 				</form>
 			</div>
 		</div>
 		
 		<!--Info Page-->
-		<div class="wrap" data-role="page" data-theme="d" id="infoPage">
-			<div data-role="header">
+		<div class="wrap" data-role="page" data-theme="c" id="infoPage">
+			<div data-role="header" data-theme="c">
 				<h1>Information</h1>
+				<img src="./img/logo.png" class="ui-btn-right">
 			</div>
 			<div data-role="content">
 				<div data-role="collapsible-set">
@@ -175,18 +179,19 @@
 			<div id="footer" data-role="footer" data-position="fixed" data-id="home">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#homePage" data-icon="home" data-theme="c">Home</a></li>
-						<li><a href="#infoPage" data-icon="info" data-theme="c" class="ui-btn-active ui-state-persist" id="infoPage">Info</a></li>
-						<li><a href="#newsstream" data-icon="star" data-theme="c" id="newsstream">News</a></li>
+						<li><a href="#homePage" data-icon="home" data-iconpos="left" data-theme="c">Home</a></li>
+						<li><a href="#infoPage" data-icon="info" data-iconpos="left" data-theme="c" class="ui-btn-active ui-state-persist" id="infoPage">Info</a></li>
+						<li><a href="#newsstream" data-icon="star" data-iconpos="left" data-theme="c" id="newsstream">News</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		
 		<!--Newsstream-->
-		<div class="wrap" data-role="page" data-theme="d" id="newsstream">
-			<div data-role="header">
+		<div class="wrap" data-role="page" data-theme="c" id="newsstream">
+			<div data-role="header" data-theme="c">
 				<h1>Newsstream</h1>
+				<img src="./img/logo.png" class="ui-btn-right">
 			</div>
 			<div data-role="content" id="newsContent">
 				<!-- Dynamic Content Area -->
@@ -194,18 +199,19 @@
 			<div id="footer" data-role="footer" data-position="fixed" data-id="home">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#homePage" data-icon="home" data-theme="c" >Home</a></li>
-						<li><a href="#infoPage" data-icon="info" data-theme="c" id="infoPage">Info</a></li>
-						<li><a href="#newsstream" data-icon="star" data-theme="c" class="ui-btn-active ui-state-persist" id="newsstream">News</a></li>
+						<li><a href="#homePage" data-icon="home" data-iconpos="left" data-theme="c" >Home</a></li>
+						<li><a href="#infoPage" data-icon="info" data-iconpos="left" data-theme="c" id="infoPage">Info</a></li>
+						<li><a href="#newsstream" data-icon="star" data-iconpos="left" data-theme="c" class="ui-btn-active ui-state-persist" id="newsstream">News</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		
 		<!--Category-->
-		<div class="wrap" data-role="page" data-theme="d" id="browse-by" data-add-back-btn="true">
-			<div data-role="header">
+		<div class="wrap" data-role="page" data-theme="c" id="browse-by" data-add-back-btn="true">
+			<div data-role="header" data-theme="c">
 				<h1></h1>
+				<img src="./img/logo.png" class="ui-btn-right">
 			</div>
 			<div id="clearAllDiv">
 				<a href='#' data-role='button' data-icon='delete' data-iconpos='right' data-theme='a' id='deleteAll'>Clear All Data</a>
@@ -217,9 +223,10 @@
 		</div>
 
 		<!--404 Error Page-->
-		<div class="wrap" data-theme="d" data-role="page" id="fourOfour" data-add-back-btn="true">
-		    <div data-role="header">
+		<div class="wrap" data-theme="c" data-role="page" id="fourOfour" data-add-back-btn="true">
+		    <div data-role="header" data-theme="c">
 				<h1>404 Error</h1>
+				<img src="./img/logo.png" class="ui-btn-right">
 			</div>
 			<div data-role="content">
 				<p>Sorry! The page you are looking for was not found.</p>
